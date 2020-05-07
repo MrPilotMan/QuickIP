@@ -55,12 +55,16 @@ Usage: allip [ -m ]\n
 [user@computer: ~ ] pubip
 Public IP Address:
 	45.152.182.131	(United States)
+```
+```sh
 [user@computer: ~ ] locip
 Local IP Address(es):
 	lo     	 127.0.0.1    	 UNKNOWN
 	eth0   	 192.168.1.12  	 UP     
 	wlan0  	 192.168.1.248	 DOWN   
 	vpn0	 10.8.8.17    	 UNKNOWN
+```	
+```sh
 [user@computer: ~ ] allip
 Public IP Address:
 	45.152.182.131	(United States)
