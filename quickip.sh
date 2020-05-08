@@ -12,12 +12,18 @@ allip() {
 }
 
 pubip() {
-    TITLE=$BOLD"Public IP Address:"$ESC
+    TITLE="$BOLD""Public IP Address:""$ESC"
 
-    ip_address=`dig +short myip.opendns.com @resolver1.opendns.com`
+    while IFS= read -r line; do
+        ip_info+=("$line")
+    done < <(curl -s https://freegeoip.app/json/ | jq --raw-output '(.ip, .region_name, .country_name)')
+
+    ip_address="${ip_info[0]}"; region="${ip_info[1]}"; country="${ip_info[2]}"
+
     case $1 in
-        -m) echo $ip_address ;;
-	      "") echo -e "$TITLE" && echo -e "\t$ip_address\t(`geoiplookup $ip_address | grep -oP ", \K.*"`)" ;;
+        -M) echo $ip_address ;;
+        -m) echo -e $TITLE && echo $ip_address ;;
+	    "") echo -e $TITLE && echo -e "\t$ip_address\t($region, $country)" ;;
         *) echo -e $__pubip_usage ;;
     esac
 }
@@ -76,11 +82,12 @@ locip() {
 __allip_usage="
 Usage: allip [ -m ]\n
 \t-m\tMinimal - Equivalent to \`pubip -m && locip -m\`.\n
-\t-M\tExtra Minimal - Equivalent to \`pubip -m && locip -M\`."
+\t-M\tExtra Minimal - Equivalent to \`pubip -M && locip -M\`."
 
 __pubip_usage="
 Usage: pubip [ -m ]\n
-\t-m\tMinimal - Only show IP address."
+\t-m\tMinimal - Dont show IP address location.
+\t-M\tExtra Minimal - Only show IP address."
 
 __locip_usage="
 Usage: locip [ OPTION ]\n
