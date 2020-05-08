@@ -45,7 +45,7 @@ Usage: locip [ OPTION ]
 ```
 
 ```sh
-Usage: allip [ OPTION ]\n
+Usage: allip [ OPTION ]
   -m    Minimal - Equivalent to `pubip -m && locip -m`.
   -M    Extra Minimal - Equivalent to `pubip -M && locip -M`.
 ```
