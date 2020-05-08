@@ -31,7 +31,7 @@ QuickIP has 3 functions, each with their own name:
 `allip` to get both public and private IPs.
 
 ```sh
-Usage: pubip [ -m ]
+Usage: pubip [ OPTION ]
   -m    Minimal - Don\'t show IP address location.
   -M    Extra Minimal - Only show IP address.
 ```
@@ -45,7 +45,7 @@ Usage: locip [ OPTION ]
 ```
 
 ```sh
-Usage: allip [ -m ]\n
+Usage: allip [ OPTION ]\n
   -m    Minimal - Equivalent to `pubip -m && locip -m`.
   -M    Extra Minimal - Equivalent to `pubip -M && locip -M`.
 ```
