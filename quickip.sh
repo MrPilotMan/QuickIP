@@ -5,7 +5,7 @@ BOLD="\e[1m"; ESC="\e[0m"; GREEN="\e[32m"; RED="\e[31m";
 allip() {
     case $1 in
         -m) pubip -m && locip -m ;;
-        -M) pubip -m && locip -M ;;
+        -M) pubip -M && locip -M ;;
         "") pubip && echo && locip ;;
         *) echo -e $__allip_usage ;;
     esac
