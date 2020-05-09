@@ -3,7 +3,7 @@ Quickly get your machine's public and private IP addresses.
 
 ## Install
 
-1. Verify and `curl` and `jq` are installed.
+1. Verify `curl` and `jq` are installed.
   * Ubuntu
 
     ```
