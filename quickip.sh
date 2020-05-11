@@ -1,6 +1,8 @@
 #!/bin/bash
 
-BOLD="\e[1m"; ESC="\e[0m"; GREEN="\e[32m"; RED="\e[31m";
+
+[[ `uname -s` == "Linux" ]] && E="\e" || E="\033"
+BOLD=$E"[1m"; ESC=$E"[0m";
 
 allip() {
     case $1 in
@@ -62,8 +64,8 @@ locip() {
                         ;;
                     "")
                         case ${operstates[$i]} in
-                            UP) STATUS_COLOR=$GREEN ;;
-                            DOWN) STATUS_COLOR=$RED ;;
+                            UP) STATUS_COLOR=$E"[32m" ;;  # Green
+                            DOWN) STATUS_COLOR=$E"[31m" ;;  # Red
                             *) STATUS_COLOR="" ;;
                         esac
                         printf "\t%-"$ifmaxlen"s\t %-"$admaxlen"s\t "$STATUS_COLOR"%-"$stmaxlen"s"$ESC"\n" \
@@ -86,7 +88,7 @@ Usage: allip [ -m ]\n
 
 __pubip_usage="
 Usage: pubip [ -m ]\n
-\t-m\tMinimal - Dont show IP address location.
+\t-m\tMinimal - Don't show IP address location.
 \t-M\tExtra Minimal - Only show IP address."
 
 __locip_usage="
