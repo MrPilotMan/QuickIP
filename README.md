@@ -14,7 +14,7 @@ Quickly get your machine's public and private IP addresses.
 3. Add the following line to your `.bashrc`(found at `~/.bashrc`). Make sure to modify the path to where you put the script.
 
     ```
-    source ~/.local/bin/quicksh.ip
+    source ~/.local/bin/quickip.sh
     ```
 
 4. Resource your `.bashrc` by either quitting and reopening your terminal or with the command `source ~/.bashrc`.
